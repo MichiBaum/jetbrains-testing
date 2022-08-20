@@ -2,3 +2,6 @@ jwt:
     domain: "https://michibaum.ch"
     audience: "jwt-audience"
     realm: "ktor sample app"
+
+ktor:
+    development: true

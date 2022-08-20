@@ -5,9 +5,6 @@ import io.ktor.http.*
 import io.ktor.server.auth.*
 import io.ktor.util.*
 import io.ktor.server.auth.jwt.*
-import com.auth0.jwt.JWT
-import com.auth0.jwt.JWTVerifier
-import com.auth0.jwt.algorithms.Algorithm
 import io.ktor.server.plugins.*
 import io.micrometer.prometheus.*
 import io.ktor.server.metrics.micrometer.*
@@ -29,7 +26,7 @@ class ApplicationTest {
     @Test
     fun testRoot() = testApplication {
         application {
-            configureRouting()
+            configureRouting(database)
         }
         client.get("/").apply {
             assertEquals(HttpStatusCode.OK, status)
